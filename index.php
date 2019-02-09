@@ -56,6 +56,23 @@ if (empty($_GET)) {
             $response = curl_exec($ch);
             curl_close($ch);
             echo $response;
+            break;
+        case 'delete':
+            $json = file_get_contents('php://input');
+            $data = json_decode($json);
+            $postdata = array(
+                'id' => $data->id
+            );
+            $relative = "/delete.php";
+            $url = $prefix . $domain . $relative;
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata);
+            $response = curl_exec($ch);
+            curl_close($ch);
+            echo $response;
+            break;
 
         default:
             // code...
