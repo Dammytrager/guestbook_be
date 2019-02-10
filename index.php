@@ -1,6 +1,6 @@
 <?php
-$domain = $_SERVER['HTTP_HOST'] . "/guestbook_be";
-$prefix = "http://";
+$domain = $_SERVER['HTTP_HOST'];
+$prefix = "https://";
 
 if (empty($_GET)) {
     $message = array(
