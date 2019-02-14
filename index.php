@@ -62,10 +62,9 @@ if (empty($_GET)) {
             echo $response;
             break;
         case 'delete':
-            $json = file_get_contents('php://input');
-            $data = json_decode($json);
+            $id = $_GET['id'];
             $postdata = array(
-                'id' => $data->id
+                'id' => $id
             );
             $relative = "/delete.php";
             $url = $prefix . $domain . $relative;
