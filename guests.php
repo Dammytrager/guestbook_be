@@ -5,7 +5,7 @@ header("Access-Control-Allow-Headers: Content-Type, Content-Range, Content-Dispo
 
 require 'connection.php';
 
-$query = 'SELECT * FROM guests';
+$query = 'SELECT * FROM guests ORDER by id DESC';
 $result = mysqli_query($db, $query) or die(mysqli_error($db));
 $data = array();
 if ($result) {
